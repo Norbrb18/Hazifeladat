@@ -34,6 +34,7 @@ namespace Házi
 
         private void nagyobb_Click(object sender, RoutedEventArgs e)
         {
+
             tipp += tipp / 2;
             talalat.Content = tipp.ToString() + "?";
         }
