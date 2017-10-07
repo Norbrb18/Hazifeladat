@@ -27,9 +27,9 @@ namespace Házi
         }
         static bool csokken = true;
         static int lenyomott = 0;
-        static int alsohatar = 0;
-        static int felsohatar = 10001;
-        static int kozepso = (alsohatar + felsohatar) / 2;
+        static double alsohatar = 0;
+        static double felsohatar = 10001;
+        static double kozepso = (alsohatar + felsohatar) / 2;
         private void kisebb_Click(object sender, RoutedEventArgs e)
         {
             felsohatar = kozepso;
@@ -41,8 +41,11 @@ namespace Házi
 
         private void nagyobb_Click(object sender, RoutedEventArgs e)
         {
-            tipp += tipp / 2;
-            talalat.Content = tipp.ToString() + "?";
+            alsohatar = kozepso;
+            kozepso = (alsohatar + felsohatar) / 2;
+            talalat.Content = kozepso.ToString() + "?";
+            lenyomott++;
+            csokken = false;
         }
 
         private void egyenlő_Click(object sender, RoutedEventArgs e)
@@ -54,13 +57,15 @@ namespace Házi
         {
             if (csokken)
             {
-                kozepso = felsohatar - alsohatar;
+                kozepso = felsohatar;
+                felsohatar = (kozepso + alsohatar) * 2;
                 talalat.Content = kozepso.ToString() + "?";
                 lenyomott--;
             }
             else
             {
-                kozepso = felsohatar - alsohatar ;
+                kozepso = alsohatar;
+                alsohatar = (kozepso + alsohatar) * 2;
                 talalat.Content = kozepso.ToString() + "?";
                 lenyomott--;
             }
