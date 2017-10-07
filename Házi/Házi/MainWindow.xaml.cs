@@ -24,6 +24,7 @@ namespace Házi
         {
             InitializeComponent();
             /*my change*/
+            int a;
         }
     }
 }
