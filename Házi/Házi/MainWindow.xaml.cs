@@ -34,18 +34,20 @@ namespace Házi
         {
             felsohatar = kozepso;
             kozepso = (alsohatar + felsohatar) / 2;
-            talalat.Content = kozepso.ToString() + "?";
+            talalat.Content = Math.Round(kozepso,MidpointRounding.ToEven).ToString() + "?";
             lenyomott++;
             csokken = true;
+            undo.IsEnabled = true;
         }
 
         private void nagyobb_Click(object sender, RoutedEventArgs e)
         {
             alsohatar = kozepso;
             kozepso = (alsohatar + felsohatar) / 2;
-            talalat.Content = kozepso.ToString() + "?";
+            talalat.Content = Math.Round(kozepso,0,MidpointRounding.ToEven).ToString() + "?";
             lenyomott++;
             csokken = false;
+            undo.IsEnabled = true;
         }
 
         private void egyenlő_Click(object sender, RoutedEventArgs e)
@@ -59,15 +61,23 @@ namespace Házi
             {
                 kozepso = felsohatar;
                 felsohatar = (kozepso + alsohatar) * 2;
-                talalat.Content = kozepso.ToString() + "?";
+                talalat.Content = Math.Round(kozepso).ToString() + "?";
                 lenyomott--;
+                if (kozepso>=5000)
+                {
+                    undo.IsEnabled = false;
+                }
             }
             else
             {
                 kozepso = alsohatar;
-                alsohatar = (kozepso + alsohatar) * 2;
-                talalat.Content = kozepso.ToString() + "?";
+                alsohatar = alsohatar*2-felsohatar;
+                talalat.Content = Math.Round(kozepso,0,MidpointRounding.ToEven).ToString() + "?";
                 lenyomott--;
+                if (kozepso >= 5000)
+                {
+                    undo.IsEnabled = false;
+                }
             }
         }
     }
