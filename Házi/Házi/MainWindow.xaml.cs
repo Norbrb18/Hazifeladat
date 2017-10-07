@@ -23,15 +23,6 @@ namespace Házi
         public MainWindow()
         {
             InitializeComponent();
-            bool seged=true;
-            if (seged)
-	{
-                Console.WriteLine("Zoli látja");
-	}
-            else
-	{
-                Console.WriteLine("KAPDEEE SZAR GITHUBBBBBB");
-	}
         }
     }
 }
