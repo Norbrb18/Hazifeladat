@@ -29,11 +29,13 @@ namespace Házi
         private void kisebb_Click(object sender, RoutedEventArgs e)
         {
             tipp -= tipp / 2;
+            talalat.Content = "Kisebb mint: " + tipp.ToString() + "?";
         }
 
         private void nagyobb_Click(object sender, RoutedEventArgs e)
         {
             tipp += tipp / 2;
+            talalat.Content = "Nagyobb mint :" + tipp.ToString() + "?";
         }
     }
 }
