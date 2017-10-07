@@ -8,13 +8,13 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Button Content="&gt;" x:Name="kisebb" HorizontalAlignment="Left" Height="36" Margin="82,186,0,0"  VerticalAlignment="Top" Width="105" FontSize="36" VerticalContentAlignment="Stretch" Padding="0" FontFamily="Arial Rounded MT Bold" Click="kisebb_Click"/>
-        <Button Content="&lt;" x:Name="nagyobb" HorizontalAlignment="Left" Height="35" Margin="341,187,0,0" VerticalAlignment="Top" Width="105" FontSize="36" HorizontalContentAlignment="Center" FontFamily="Arial Rounded MT Bold"/>
-        <Button Content="=" x:Name="egyenlő" HorizontalAlignment="Left" Height="35" Margin="211,187,0,0" VerticalAlignment="Top" Width="105" FontSize="36" HorizontalContentAlignment="Center" FontFamily="Arial Rounded MT Bold"/>
+        <Button Content="&lt;" x:Name="nagyobb" HorizontalAlignment="Left" Height="35" Margin="341,187,0,0" VerticalAlignment="Top" Width="105" FontSize="36" HorizontalContentAlignment="Center" FontFamily="Arial Rounded MT Bold" Click="nagyobb_Click"/>
+        <Button Content="=" x:Name="egyenlő" HorizontalAlignment="Left" Height="35" Margin="211,187,0,0" VerticalAlignment="Top" Width="105" FontSize="36" HorizontalContentAlignment="Center" FontFamily="Arial Rounded MT Bold" Click="egyenlő_Click"/>
         <Label Content="Less then"  VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Margin="82,157,0,0" VerticalAlignment="Top" Width="105" FontSize="16" FontFamily="Arial Rounded MT Bold"/>
         <Label Content="Equal to" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Margin="211,157,0,0" VerticalAlignment="Top" Width="105" FontSize="16" FontFamily="Arial Rounded MT Bold"/>
         <Label Content="More then" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Margin="341,157,0,0" VerticalAlignment="Top" Width="105" FontSize="16" FontFamily="Arial Rounded MT Bold"/>
         <Label Content="Kerlek gondolj 1 számra 0 és &#x0a;10000 között" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="82,80,0,0" VerticalAlignment="Top" Height="61" Width="364" FontFamily="Arial Rounded MT Bold" FontSize="18"/>
-        <Label Content="" x:Name="talalat" Height="48" Margin="95,251,0,0" VerticalAlignment="Top" Width="335"/>
+        <Label Content="5000" x:Name="talalat" Height="48" Margin="97,235,85,0" VerticalAlignment="Top" Width="335"/>
 
     </Grid>
 </Window>
