@@ -41,11 +41,8 @@ namespace Házi
 
         private void nagyobb_Click(object sender, RoutedEventArgs e)
         {
-            alsohatar = kozepso;
-            kozepso = (alsohatar + felsohatar) / 2;
-            talalat.Content = kozepso.ToString() + "?";
-            lenyomott++;
-            csokken = false;
+            tipp += tipp / 2;
+            talalat.Content = tipp.ToString() + "?";
         }
 
         private void egyenlő_Click(object sender, RoutedEventArgs e)
