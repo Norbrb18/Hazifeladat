@@ -28,7 +28,7 @@ namespace Házi
         static bool csokken = true;
         static int lenyomott = 0;
         static double alsohatar = 0;
-        static double felsohatar = 10001;
+        static double felsohatar = 10000;
         static double kozepso = (alsohatar + felsohatar) / 2;
         private void kisebb_Click(object sender, RoutedEventArgs e)
         {
@@ -63,7 +63,7 @@ namespace Házi
                 felsohatar = (kozepso + alsohatar) * 2;
                 talalat.Content = Math.Round(kozepso).ToString() + "?";
                 lenyomott--;
-                if (kozepso>=5000)
+                if (Math.Round(kozepso)==5000)
                 {
                     undo.IsEnabled = false;
                 }
@@ -74,7 +74,7 @@ namespace Házi
                 alsohatar = alsohatar*2-felsohatar;
                 talalat.Content = Math.Round(kozepso,0,MidpointRounding.ToEven).ToString() + "?";
                 lenyomott--;
-                if (kozepso >= 5000)
+                if (Math.Round(kozepso) == 5000)
                 {
                     undo.IsEnabled = false;
                 }
