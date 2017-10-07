@@ -63,7 +63,7 @@ namespace Házi
             }
             else
             {
-                kozepso = felsohatar - alsohatar -1;
+                kozepso = felsohatar - alsohatar ;
                 talalat.Content = kozepso.ToString() + "?";
                 lenyomott--;
             }
