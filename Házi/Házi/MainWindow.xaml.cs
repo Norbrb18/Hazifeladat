@@ -24,7 +24,16 @@ namespace Házi
         {
             InitializeComponent();
             /*my change*/
-            int a;
+        }
+        private int tipp = 5000;
+        private void kisebb_Click(object sender, RoutedEventArgs e)
+        {
+            tipp -= tipp / 2;
+        }
+
+        private void nagyobb_Click(object sender, RoutedEventArgs e)
+        {
+            tipp += tipp / 2;
         }
     }
 }
