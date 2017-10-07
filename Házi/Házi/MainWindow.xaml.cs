@@ -24,18 +24,7 @@ namespace Házi
         {
             InitializeComponent();
             /*my change*/
-        }
-        private int tipp = 5000;
-        private void kisebb_Click(object sender, RoutedEventArgs e)
-        {
-            tipp -= tipp / 2;
-            talalat.Content = "Kisebb mint: " + tipp.ToString() + "?";
-        }
-
-        private void nagyobb_Click(object sender, RoutedEventArgs e)
-        {
-            tipp += tipp / 2;
-            talalat.Content = "Nagyobb mint :" + tipp.ToString() + "?";
+            int a;
         }
     }
 }
