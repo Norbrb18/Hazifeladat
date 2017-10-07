@@ -30,7 +30,7 @@ namespace Házi
 	}
             else
 	{
-                Console.WriteLine("Nem látja");
+                Console.WriteLine("KAPDEEE SZAR GITHUBBBBBB");
 	}
         }
     }
