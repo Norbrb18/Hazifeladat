@@ -23,7 +23,7 @@ namespace Házi
         public MainWindow()
         {
             InitializeComponent();
-            int latod;
+            /*my change*/
         }
     }
 }
