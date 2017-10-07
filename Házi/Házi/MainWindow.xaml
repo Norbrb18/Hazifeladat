@@ -13,7 +13,7 @@
         <Label Content="Less then"  VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Margin="82,157,0,0" VerticalAlignment="Top" Width="105" FontSize="16" FontFamily="Arial Rounded MT Bold"/>
         <Label Content="Equal to" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Margin="211,157,0,0" VerticalAlignment="Top" Width="105" FontSize="16" FontFamily="Arial Rounded MT Bold"/>
         <Label Content="More then" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Margin="341,157,0,0" VerticalAlignment="Top" Width="105" FontSize="16" FontFamily="Arial Rounded MT Bold"/>
-        <Label Content="Kerlek gondolj 1 számra 0 és &#x0a;10000 között" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="82,80,0,0" VerticalAlignment="Top" Height="61" Width="364" FontFamily="Arial Rounded MT Bold" FontSize="18"/>
+        <Label Content="Kerlek gondolj 1 számra &#x0a;0 és 10000 között" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="82,80,0,0" VerticalAlignment="Top" Height="61" Width="364" FontFamily="Arial Rounded MT Bold" FontSize="18"/>
 
     </Grid>
 </Window>
