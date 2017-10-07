@@ -7,11 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Button Content="Más lett" HorizontalAlignment="Left" Height="35" Margin="152,223,0,0" VerticalAlignment="Top" Width="93"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="322,238,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="hulyesoma" HorizontalAlignment="Left" Height="35" Margin="82,187,0,0" VerticalAlignment="Top" Width="93"/>
 
     </Grid>
 </Window>
