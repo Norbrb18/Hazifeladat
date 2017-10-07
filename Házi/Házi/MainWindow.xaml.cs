@@ -25,8 +25,8 @@ namespace Házi
             InitializeComponent();
 
         }
-        static bool csokken = true;
-        static int lenyomott = 0;
+        static bool[] csokken = new bool[1000];
+        static int lenyomott = -1;
         static double alsohatar = 0;
         static double felsohatar = 10000;
         static double kozepso = (alsohatar + felsohatar) / 2;
@@ -35,8 +35,11 @@ namespace Házi
             felsohatar = kozepso;
             kozepso = (alsohatar + felsohatar) / 2;
             talalat.Content = Math.Round(kozepso,MidpointRounding.ToEven).ToString() + "?";
+
             lenyomott++;
-            csokken = true;
+            csokken[lenyomott] = true;
+            
+
             undo.IsEnabled = true;
         }
 
@@ -45,8 +48,11 @@ namespace Házi
             alsohatar = kozepso;
             kozepso = (alsohatar + felsohatar) / 2;
             talalat.Content = Math.Round(kozepso,0,MidpointRounding.ToEven).ToString() + "?";
+
             lenyomott++;
-            csokken = false;
+            csokken[lenyomott] = false;
+            
+
             undo.IsEnabled = true;
         }
 
@@ -57,27 +63,24 @@ namespace Házi
 
         private void undo_Click(object sender, RoutedEventArgs e)
         {
-            if (csokken)
+            if (csokken[lenyomott])
             {
                 kozepso = felsohatar;
-                felsohatar = (kozepso + alsohatar) * 2;
+                felsohatar = kozepso*2 - alsohatar ;
                 talalat.Content = Math.Round(kozepso).ToString() + "?";
                 lenyomott--;
-                if (Math.Round(kozepso)==5000)
-                {
-                    undo.IsEnabled = false;
-                }
             }
-            else
+            else if (!csokken[lenyomott])
             {
                 kozepso = alsohatar;
                 alsohatar = alsohatar*2-felsohatar;
                 talalat.Content = Math.Round(kozepso,0,MidpointRounding.ToEven).ToString() + "?";
                 lenyomott--;
-                if (Math.Round(kozepso) == 5000)
-                {
-                    undo.IsEnabled = false;
-                }
+            }
+
+            if (Math.Round(kozepso) == 5000)
+            {
+                undo.IsEnabled = false;
             }
         }
     }
