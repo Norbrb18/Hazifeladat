@@ -29,7 +29,18 @@ namespace Házi
         private void kisebb_Click(object sender, RoutedEventArgs e)
         {
             tipp -= tipp / 2;
-            talalat.Content = "Kisebb mint: " + tipp.ToString() + "?";
+            talalat.Content = tipp.ToString() + "?";
+        }
+
+        private void nagyobb_Click(object sender, RoutedEventArgs e)
+        {
+            tipp += tipp / 2;
+            talalat.Content = tipp.ToString() + "?";
+        }
+
+        private void egyenlő_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Gratulálok! Nyertél!", "Nyertél!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
         }
     }
 }
