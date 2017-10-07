@@ -7,7 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button Content="Más lett" HorizontalAlignment="Left" Height="35" Margin="82,187,0,0" VerticalAlignment="Top" Width="93"/>
+        <Button Content="&gt;" HorizontalAlignment="Left" Height="35" Margin="82,187,0,0" VerticalAlignment="Top" Width="105" FontSize="36" VerticalContentAlignment="Center" Padding="0" FontFamily="Showcard Gothic"/>
+        <Button Content="&lt;" HorizontalAlignment="Left" Height="35" Margin="341,187,0,0" VerticalAlignment="Top" Width="105" FontSize="36" VerticalContentAlignment="Center" FontFamily="Showcard Gothic"/>
+        <Button Content="=" HorizontalAlignment="Left" Height="35" Margin="211,187,0,0" VerticalAlignment="Top" Width="105" FontSize="36" VerticalContentAlignment="Center" FontFamily="Showcard Gothic"/>
+        <Label Content="Less then"  VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Margin="82,157,0,0" VerticalAlignment="Top" Width="105" FontSize="16" FontFamily="Showcard Gothic"/>
+        <Label Content="Equal to" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Margin="211,157,0,0" VerticalAlignment="Top" Width="105" FontSize="16" FontFamily="Showcard Gothic"/>
+        <Label Content="More then" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Margin="341,157,0,0" VerticalAlignment="Top" Width="105" FontSize="16" FontFamily="Showcard Gothic"/>
+        <Label Content="Kerlek gondolj 1 számra 0 és 10000 között"  HorizontalAlignment="Left" Margin="82,80,0,0" VerticalAlignment="Top" Height="45" Width="364" FontFamily="Showcard Gothic" FontSize="18"/>
 
     </Grid>
 </Window>
