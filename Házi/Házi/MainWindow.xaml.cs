@@ -23,8 +23,13 @@ namespace Házi
         public MainWindow()
         {
             InitializeComponent();
-            /*my change*/
-            int a;
+
+        }
+        private int tipp = 5000;
+        private void kisebb_Click(object sender, RoutedEventArgs e)
+        {
+            tipp -= tipp / 2;
+            talalat.Content = "Kisebb mint: " + tipp.ToString() + "?";
         }
     }
 }
