@@ -25,6 +25,7 @@ namespace Házi
             InitializeComponent();
 
         }
+        static bool csokken = true;
         static int lenyomott = 0;
         static int alsohatar = 0;
         static int felsohatar = 10001;
@@ -35,6 +36,7 @@ namespace Házi
             kozepso = (alsohatar + felsohatar) / 2;
             talalat.Content = kozepso.ToString() + "?";
             lenyomott++;
+            csokken = true;
         }
 
         private void nagyobb_Click(object sender, RoutedEventArgs e)
@@ -43,12 +45,28 @@ namespace Házi
             kozepso = (alsohatar + felsohatar) / 2;
             talalat.Content = kozepso.ToString() + "?";
             lenyomott++;
+            csokken = false;
         }
 
         private void egyenlő_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Gratulálok! Nyertél! Lenyomott gomobok száma: "+lenyomott , "Nyertél!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+        }
 
+        private void undo_Click(object sender, RoutedEventArgs e)
+        {
+            if (csokken)
+            {
+                kozepso = felsohatar - alsohatar;
+                talalat.Content = kozepso.ToString() + "?";
+                lenyomott--;
+            }
+            else
+            {
+                kozepso = felsohatar - alsohatar -1;
+                talalat.Content = kozepso.ToString() + "?";
+                lenyomott--;
+            }
         }
     }
 }
