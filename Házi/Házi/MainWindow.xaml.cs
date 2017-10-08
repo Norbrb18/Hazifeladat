@@ -63,7 +63,7 @@ namespace Házi
             talalat.Text = Math.Round(kozepso,MidpointRounding.ToEven).ToString();
             lenyomott++;
             mentes.Push(true);
-            proba.Text = szinek(talalat.Text);
+            this.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(szinek(talalat.Text)));
 
             undo.IsEnabled = true;
         }
@@ -74,9 +74,9 @@ namespace Házi
             kozepso = (alsohatar + felsohatar) / 2;
             talalat.Text = Math.Round(kozepso,0,MidpointRounding.ToEven).ToString();
             lenyomott++;
-            mentes.Push(false); 
+            mentes.Push(false);
 
-
+            this.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(szinek(talalat.Text)));
             undo.IsEnabled = true;
         }
 
@@ -94,6 +94,7 @@ namespace Házi
                 talalat.Text = Math.Round(kozepso).ToString();
                 lenyomott--;
                 mentes.Pop();
+                this.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(szinek(talalat.Text)));
             }
             else if (!mentes.Peek())
             {
@@ -102,6 +103,7 @@ namespace Házi
                 talalat.Text = Math.Round(kozepso,0,MidpointRounding.ToEven).ToString();
                 lenyomott--;
                 mentes.Pop();
+                this.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(szinek(talalat.Text)));
             }
 
             if (Math.Round(kozepso) == 5000)
