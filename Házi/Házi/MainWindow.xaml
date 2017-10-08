@@ -14,8 +14,8 @@
         <Label Content="Equal to" VerticalContentAlignment="Bottom" IsEnabled="False" HorizontalAlignment="Left" Margin="211,158,0,0" VerticalAlignment="Top" Width="105" FontSize="16" FontFamily="Arial Rounded MT Bold"/>
         <Label Content="More then" VerticalContentAlignment="Bottom" IsEnabled="False" HorizontalAlignment="Left" Margin="341,158,0,0" VerticalAlignment="Top" Width="105" FontSize="16" FontFamily="Arial Rounded MT Bold"/>
         <Label Content="Számkitaláló" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="82,10,0,0" VerticalAlignment="Top" Height="61" Width="364" FontFamily="Arial Rounded MT Bold" FontSize="22"/>
-        <Label Content="5000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsEnabled="False" x:Name="talalat" Height="48" Margin="82,87,71,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial Rounded MT Bold"/>
         <Button Content="Undo" x:Name="undo" HorizontalAlignment="Left" Height="34" Margin="211,249,0,0" VerticalAlignment="Top" Width="105" FontFamily="Arial Rounded MT Bold" FontSize="20" IsCancel="True" Click="undo_Click" IsEnabled="False" />
+        <TextBox Text="5000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsEnabled="False" x:Name="talalat" Height="48" Margin="82,87,71,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial Rounded MT Bold" />
 
     </Grid>
 </Window>

@@ -27,29 +27,29 @@ namespace Házi
         }
         
         Stack<string> seged = new Stack<string>();
-        public string szinek()
-        {
-            int szin = Convert.ToInt32(talalat.Content);
-            while (szin > 0)
+        public string szinek(string param)
+        { //asd
+            string szin = "";
+            while (Convert.ToInt32(param) > 0)
             {
-                if (szin % 16 < 10)
+                if (Convert.ToInt32(param) % 16 < 10)
                 {
-                    seged.Push((szin % 16).ToString());
+                    seged.Push(Convert.ToString(Convert.ToInt32(param) % 16));
                 }
-                else if (szin % 16 > 9)
+                else if (Convert.ToInt32(param) % 16 > 9)
                 {
-                    seged.Push(Convert.ToString(Convert.ToChar(55 + szin % 16)));
+                    seged.Push(Convert.ToString(Convert.ToChar(55 + (Convert.ToInt32(param) % 16))));
                 }
 
-                szin = szin / 16;
+                param = Convert.ToString(Convert.ToInt32(param) / 16);
             }
             seged.Push("#");
             for (int i = seged.Count; i > 0; i--)
             {
-                szin +=Convert.ToInt32(seged.Pop());
+                szin += seged.Pop();
                 
             }
-            return szin.ToString();
+            return szin;
         }
         static Stack<bool> mentes = new Stack<bool>();
         static int lenyomott = 0;
@@ -60,10 +60,10 @@ namespace Házi
         {
             felsohatar = kozepso;
             kozepso = (alsohatar + felsohatar) / 2;
-            talalat.Content = Math.Round(kozepso,MidpointRounding.ToEven).ToString();
+            talalat.Text = Math.Round(kozepso,MidpointRounding.ToEven).ToString();
             lenyomott++;
             mentes.Push(true);
-            talalat.Content = szinek();
+            this.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(szinek(talalat.Text)));
 
             undo.IsEnabled = true;
         }
@@ -72,11 +72,11 @@ namespace Házi
         {
             alsohatar = kozepso;
             kozepso = (alsohatar + felsohatar) / 2;
-            talalat.Content = Math.Round(kozepso,0,MidpointRounding.ToEven).ToString();
+            talalat.Text = Math.Round(kozepso,0,MidpointRounding.ToEven).ToString();
             lenyomott++;
-            mentes.Push(false); 
+            mentes.Push(false);
 
-
+            this.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(szinek(talalat.Text)));
             undo.IsEnabled = true;
         }
 
@@ -91,17 +91,19 @@ namespace Házi
             {
                 kozepso = felsohatar;
                 felsohatar = kozepso*2 - alsohatar ;
-                talalat.Content = Math.Round(kozepso).ToString();
+                talalat.Text = Math.Round(kozepso).ToString();
                 lenyomott--;
                 mentes.Pop();
+                this.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(szinek(talalat.Text)));
             }
             else if (!mentes.Peek())
             {
                 kozepso = alsohatar;
                 alsohatar = alsohatar*2-felsohatar;
-                talalat.Content = Math.Round(kozepso,0,MidpointRounding.ToEven).ToString();
+                talalat.Text = Math.Round(kozepso,0,MidpointRounding.ToEven).ToString();
                 lenyomott--;
                 mentes.Pop();
+                this.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(szinek(talalat.Text)));
             }
 
             if (Math.Round(kozepso) == 5000)
