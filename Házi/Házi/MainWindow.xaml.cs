@@ -80,6 +80,29 @@ namespace Házi
                 return AI();
             }
         }
+        static int keresett = 123320012;
+        Stack<string> seged = new Stack<string>();
+        public void szinek()
+        {
+            while (keresett > 0)
+            {
+                if (keresett % 16 < 10)
+                {
+                    seged.Push(Convert.ToString(keresett % 16));
+                }
+                else if (keresett % 16 > 9)
+                {
+                    seged.Push(Convert.ToString(Convert.ToChar(55 + (keresett % 16))));
+                }
+
+                keresett = keresett / 16;
+            }
+            seged.Push("#");
+            for (int i = seged.Count; i > 0; i--)
+            {
+                Console.Write(seged.Pop());
+            }
+        }
         static List<int> mentesek = new List<int>();
         //Át írtam veremre mert így nem kell előre lefoglalni az 1000 helyet a bool tömbnek :) Ezt a vermet kb erre találták ki :D
         static Stack<bool> csokken = new Stack<bool>();
