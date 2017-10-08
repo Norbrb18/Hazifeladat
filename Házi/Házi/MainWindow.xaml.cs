@@ -25,31 +25,34 @@ namespace Házi
             InitializeComponent();
 
         }
-        static int keresett = 123320012;
+        
         Stack<string> seged = new Stack<string>();
-        public void szinek()
+        public string szinek(Label param)
         {
-            while (keresett > 0)
+            string szin = "";
+            while (Convert.ToInt32(param) > 0)
             {
-                if (keresett % 16 < 10)
+                if (Convert.ToInt32(param.Content.ToString()) % 16 < 10)
                 {
-                    seged.Push(Convert.ToString(keresett % 16));
+                    seged.Push(Convert.ToString(Convert.ToInt32(param.Content.ToString()) % 16));
                 }
-                else if (keresett % 16 > 9)
+                else if (Convert.ToInt32(param.Content.ToString()) % 16 > 9)
                 {
-                    seged.Push(Convert.ToString(Convert.ToChar(55 + (keresett % 16))));
+                    seged.Push(Convert.ToString(Convert.ToChar(55 + (Convert.ToInt32(param.Content.ToString()) % 16))));
                 }
 
-                keresett = keresett / 16;
+                param.Content = Convert.ToInt32(param.Content.ToString()) / 16;
             }
             seged.Push("#");
             for (int i = seged.Count; i > 0; i--)
             {
-                Console.Write(seged.Pop());
+                szin += seged.Pop();
+                
             }
+            return szin;
         }
         static Stack<bool> mentes = new Stack<bool>();
-        static int lenyomott = -1;
+        static int lenyomott = 0;
         static double alsohatar = 0;
         static double felsohatar = 10000;
         static double kozepso = (alsohatar + felsohatar) / 2;
@@ -61,7 +64,7 @@ namespace Házi
 
             lenyomott++;
             mentes.Push(true);
-            
+            talalat.Content = szinek(talalat);
 
             undo.IsEnabled = true;
         }
