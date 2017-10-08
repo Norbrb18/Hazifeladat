@@ -25,7 +25,30 @@ namespace Házi
             InitializeComponent();
 
         }
-        static bool[] csokken = new bool[1000];
+        static int keresett = 123320012;
+        Stack<string> seged = new Stack<string>();
+        public void szinek()
+        {
+            while (keresett > 0)
+            {
+                if (keresett % 16 < 10)
+                {
+                    seged.Push(Convert.ToString(keresett % 16));
+                }
+                else if (keresett % 16 > 9)
+                {
+                    seged.Push(Convert.ToString(Convert.ToChar(55 + (keresett % 16))));
+                }
+
+                keresett = keresett / 16;
+            }
+            seged.Push("#");
+            for (int i = seged.Count; i > 0; i--)
+            {
+                Console.Write(seged.Pop());
+            }
+        }
+        static Stack<bool> mentes = new Stack<bool>();
         static int lenyomott = -1;
         static double alsohatar = 0;
         static double felsohatar = 10000;
@@ -37,7 +60,7 @@ namespace Házi
             talalat.Content = Math.Round(kozepso,MidpointRounding.ToEven).ToString() + "?";
 
             lenyomott++;
-            csokken[lenyomott] = true;
+            mentes.Push(true);
             
 
             undo.IsEnabled = true;
@@ -50,8 +73,8 @@ namespace Házi
             talalat.Content = Math.Round(kozepso,0,MidpointRounding.ToEven).ToString() + "?";
 
             lenyomott++;
-            csokken[lenyomott] = false;
-            
+            mentes.Push(false); 
+
 
             undo.IsEnabled = true;
         }
@@ -63,19 +86,21 @@ namespace Házi
 
         private void undo_Click(object sender, RoutedEventArgs e)
         {
-            if (csokken[lenyomott])
+            if (mentes.Peek())
             {
                 kozepso = felsohatar;
                 felsohatar = kozepso*2 - alsohatar ;
                 talalat.Content = Math.Round(kozepso).ToString() + "?";
                 lenyomott--;
+                mentes.Pop();
             }
-            else if (!csokken[lenyomott])
+            else if (!mentes.Peek())
             {
                 kozepso = alsohatar;
                 alsohatar = alsohatar*2-felsohatar;
                 talalat.Content = Math.Round(kozepso,0,MidpointRounding.ToEven).ToString() + "?";
                 lenyomott--;
+                mentes.Pop();
             }
 
             if (Math.Round(kozepso) == 5000)
