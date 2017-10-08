@@ -61,7 +61,6 @@ namespace Házi
             felsohatar = kozepso;
             kozepso = (alsohatar + felsohatar) / 2;
             talalat.Content = Math.Round(kozepso,MidpointRounding.ToEven).ToString() + "?";
-
             lenyomott++;
             mentes.Push(true);
             talalat.Content = szinek(talalatööü);
@@ -74,7 +73,6 @@ namespace Házi
             alsohatar = kozepso;
             kozepso = (alsohatar + felsohatar) / 2;
             talalat.Content = Math.Round(kozepso,0,MidpointRounding.ToEven).ToString() + "?";
-
             lenyomott++;
             mentes.Push(false); 
 
