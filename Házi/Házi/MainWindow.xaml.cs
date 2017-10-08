@@ -28,7 +28,7 @@ namespace Házi
         
         Stack<string> seged = new Stack<string>();
         public string szinek(Label param)
-        {
+        { //asd
             string szin = "";
             while (Convert.ToInt32(param) > 0)
             {
@@ -64,7 +64,7 @@ namespace Házi
 
             lenyomott++;
             mentes.Push(true);
-            talalat.Content = szinek(talalat);
+            talalat.Content = szinek(talalatööü);
 
             undo.IsEnabled = true;
         }
