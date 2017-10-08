@@ -27,29 +27,29 @@ namespace Házi
         }
         
         Stack<string> seged = new Stack<string>();
-        public string szinek(Label param)
+        public string szinek()
         {
-            string szin = "";
-            while (Convert.ToInt32(param) > 0)
+            int szin = Convert.ToInt32(talalat.Content);
+            while (szin > 0)
             {
-                if (Convert.ToInt32(param.Content.ToString()) % 16 < 10)
+                if (szin % 16 < 10)
                 {
-                    seged.Push(Convert.ToString(Convert.ToInt32(param.Content.ToString()) % 16));
+                    seged.Push((szin % 16).ToString());
                 }
-                else if (Convert.ToInt32(param.Content.ToString()) % 16 > 9)
+                else if (szin % 16 > 9)
                 {
-                    seged.Push(Convert.ToString(Convert.ToChar(55 + (Convert.ToInt32(param.Content.ToString()) % 16))));
+                    seged.Push(Convert.ToString(Convert.ToChar(55 + szin % 16)));
                 }
 
-                param.Content = Convert.ToInt32(param.Content.ToString()) / 16;
+                szin = szin / 16;
             }
             seged.Push("#");
             for (int i = seged.Count; i > 0; i--)
             {
-                szin += seged.Pop();
+                szin +=Convert.ToInt32(seged.Pop());
                 
             }
-            return szin;
+            return szin.ToString();
         }
         static Stack<bool> mentes = new Stack<bool>();
         static int lenyomott = 0;
@@ -60,10 +60,10 @@ namespace Házi
         {
             felsohatar = kozepso;
             kozepso = (alsohatar + felsohatar) / 2;
-            talalat.Content = Math.Round(kozepso,MidpointRounding.ToEven).ToString() + "?";
+            talalat.Content = Math.Round(kozepso,MidpointRounding.ToEven).ToString();
             lenyomott++;
             mentes.Push(true);
-            talalat.Content = szinek(talalat);
+            talalat.Content = szinek();
 
             undo.IsEnabled = true;
         }
@@ -72,7 +72,7 @@ namespace Házi
         {
             alsohatar = kozepso;
             kozepso = (alsohatar + felsohatar) / 2;
-            talalat.Content = Math.Round(kozepso,0,MidpointRounding.ToEven).ToString() + "?";
+            talalat.Content = Math.Round(kozepso,0,MidpointRounding.ToEven).ToString();
             lenyomott++;
             mentes.Push(false); 
 
@@ -91,7 +91,7 @@ namespace Házi
             {
                 kozepso = felsohatar;
                 felsohatar = kozepso*2 - alsohatar ;
-                talalat.Content = Math.Round(kozepso).ToString() + "?";
+                talalat.Content = Math.Round(kozepso).ToString();
                 lenyomott--;
                 mentes.Pop();
             }
@@ -99,7 +99,7 @@ namespace Házi
             {
                 kozepso = alsohatar;
                 alsohatar = alsohatar*2-felsohatar;
-                talalat.Content = Math.Round(kozepso,0,MidpointRounding.ToEven).ToString() + "?";
+                talalat.Content = Math.Round(kozepso,0,MidpointRounding.ToEven).ToString();
                 lenyomott--;
                 mentes.Pop();
             }
