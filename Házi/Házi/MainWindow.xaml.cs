@@ -63,8 +63,18 @@ namespace Házi
             talalat.Text = Math.Round(kozepso,MidpointRounding.ToEven).ToString();
             lenyomott++;
             mentes.Push(true);
-            this.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(szinek(talalat.Text)));
+            try
+            {
+                this.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(szinek(talalat.Text)));
+            }
+            catch (Exception)
+            {
 
+                Random vel = new Random();
+                this.Background = new SolidColorBrush(Color.FromRgb((byte)vel.Next(0, 255), (byte)vel.Next(0, 255), (byte)vel.Next(0, 255)));
+            }
+            
+         
             undo.IsEnabled = true;
         }
 
@@ -75,8 +85,17 @@ namespace Házi
             talalat.Text = Math.Round(kozepso,0,MidpointRounding.ToEven).ToString();
             lenyomott++;
             mentes.Push(false);
+            try
+            {
+               this.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(szinek(talalat.Text)));
+            }
+            catch (Exception)
+            {
 
-            this.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(szinek(talalat.Text)));
+                Random vel = new Random();
+                this.Background = new SolidColorBrush(Color.FromRgb((byte)vel.Next(0, 255), (byte)vel.Next(0, 255), (byte)vel.Next(0, 255)));
+            }
+            
             undo.IsEnabled = true;
         }
 
@@ -94,7 +113,7 @@ namespace Házi
                 talalat.Text = Math.Round(kozepso).ToString();
                 lenyomott--;
                 mentes.Pop();
-                this.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(szinek(talalat.Text)));
+               
             }
             else if (!mentes.Peek())
             {
@@ -103,12 +122,21 @@ namespace Házi
                 talalat.Text = Math.Round(kozepso,0,MidpointRounding.ToEven).ToString();
                 lenyomott--;
                 mentes.Pop();
-                this.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(szinek(talalat.Text)));
+                
             }
 
             if (Math.Round(kozepso) == 5000)
             {
                 undo.IsEnabled = false;
+            }
+            try
+            {
+                this.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(szinek(talalat.Text)));
+            }
+            catch (Exception)
+            {
+                Random vel = new Random();
+                this.Background = new SolidColorBrush(Color.FromRgb((byte)vel.Next(0, 255), (byte)vel.Next(0, 255), (byte)vel.Next(0, 255)));
             }
         }
     }
