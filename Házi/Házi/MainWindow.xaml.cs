@@ -23,7 +23,7 @@ namespace Házi
         public MainWindow()
         {
             InitializeComponent();
-
+            int buiziiiii;
         }
         
         Stack<string> seged = new Stack<string>();
