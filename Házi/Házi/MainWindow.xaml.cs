@@ -49,7 +49,7 @@ namespace Házi
                 szin += seged.Pop();
                 
             }
-// dfgdfg
+// dfgd
             return szin;
         }
         static Stack<bool> mentes = new Stack<bool>();
